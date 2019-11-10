@@ -1,6 +1,9 @@
 {
   "name": "desafiofrontend",
   "version": "0.0.1",
+  "engines": {
+    "node": "^10.x"
+  },
   "private": true,
   "scripts": {
     "start": "react-native start",
