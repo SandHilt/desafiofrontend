@@ -28,7 +28,6 @@ const App = () => {
   return (
     <View style={styles.main}>
       <Text>Hello, world foobar!</Text>
-      <br/>
       <TextInput
         style={styles.textEl}
         placeholder="Login"
