@@ -3,23 +3,10 @@
  * @flow
  */
 
-import React, {useState} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  Image,
-  Button,
-  TextInput,
-  Alert,
-  Text,
-} from 'react-native';
+import React, {Fragment, useState} from 'react';
+import {Button, Image, StyleSheet, Text, TextInput, View} from 'react-native';
 
 const css = StyleSheet.create({
-  main: {
-    flex: 1,
-    alignItems: 'center',
-  },
   textEl: {
     height: 40,
     borderColor: 'gray',
@@ -40,23 +27,24 @@ const css = StyleSheet.create({
     color: '#6c757d',
     textAlign: 'right',
   },
+  oneBlock: {
+    flex: 1,
+  },
 });
 
-const Login = ({hidden: index}) => {
+const Login = ({nextIndex}) => {
   const [login, setEmail] = useState('');
   const [cpf, setCPF] = useState();
 
-  const next = () => Alert.alert('Show index', `This is my index ${index}`);
-
   return (
-    <SafeAreaView style={css.main}>
+    <Fragment>
       <View style={css.containerImage}>
         <Image
           source={require('./assets/Logo_telaInicial.png')}
           resizeMode="center"
         />
       </View>
-      <View style={{flex: 1}}>
+      <View style={css.oneBlock}>
         <TextInput
           style={css.textEl}
           placeholder="E-mail"
@@ -67,17 +55,17 @@ const Login = ({hidden: index}) => {
           style={css.textEl}
           placeholder="CPF"
           onSubmitEditing={({nativeEvent: {text}}) => setCPF(text)}
-          value={login}
+          value={cpf}
         />
         <Button
           title="Logar"
-          onPress={next}
+          onPress={nextIndex}
           color={css.btn.color}
           style={css.btn}
         />
         <Text style={css.forgetPass}>Esqueceu a senha? Nem tem senha.</Text>
       </View>
-    </SafeAreaView>
+    </Fragment>
   );
 };
 
