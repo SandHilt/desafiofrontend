@@ -7,7 +7,7 @@
  */
 
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 
 import Login from './Login';
 import Options from './Options';
@@ -35,7 +35,7 @@ const App = () => {
     }
   }, [index]);
 
-  return <SafeAreaView style={css.main}>{view}</SafeAreaView>;
+  return <View style={css.main}>{view}</View>;
 };
 
 export default App;
