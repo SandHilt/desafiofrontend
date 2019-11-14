@@ -6,35 +6,17 @@
  * @flow
  */
 
-import React, {useState} from 'react';
-import {StyleSheet, View, Text, TextInput} from 'react-native';
-
-const styles = StyleSheet.create({
-  main: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  textEl: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-  },
-});
+import React, {Fragment, useState} from 'react';
+import Login from './Login';
 
 const App = () => {
-  const [login, setLogin] = useState('');
+  const [index, setIndex] = useState(1);
+  const changeIndex = (i: number) => setIndex(i);
 
   return (
-    <View style={styles.main}>
-      <Text>Hello, world foobar!</Text>
-      <TextInput
-        style={styles.textEl}
-        placeholder="Login"
-        onSubmitEditing={({nativeEvent: {text}}) => setLogin(text)}
-        value={login}
-      />
-    </View>
+    <Fragment>
+      <Login hidden={index} />
+    </Fragment>
   );
 };
 
