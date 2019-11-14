@@ -40,7 +40,7 @@ const Login = ({nextIndex}) => {
     <Fragment>
       <View style={css.containerImage}>
         <Image
-          source={require('./assets/Logo_telaInicial.png')}
+          source={require('../assets/Logo_telaInicial.png')}
           resizeMode="center"
         />
       </View>

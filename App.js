@@ -9,8 +9,8 @@
 import React, {useEffect, useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 
-import Login from './Login';
-import Options from './Options';
+import Login from './components/Login';
+import Options from './components/Options';
 
 const css = StyleSheet.create({
   main: {
