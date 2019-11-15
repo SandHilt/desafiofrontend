@@ -19,8 +19,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   btn: {
-    alignSelf: 'flex-end',
-    borderRadius: 15,
     color: '#f77737',
   },
   forgetPass: {
@@ -57,12 +55,7 @@ const Login: React.FC<Login> = ({nextIndex}) => {
           onSubmitEditing={({nativeEvent: {text}}) => setCPF(text)}
           value={cpf}
         />
-        <Button
-          title="Logar"
-          onPress={nextIndex}
-          color={styles.btn.color}
-          style={styles.btn}
-        />
+        <Button title="Logar" onPress={nextIndex} color={styles.btn.color} />
         <Text style={styles.forgetPass}>Esqueceu a senha? Nem tem senha.</Text>
       </View>
     </Fragment>

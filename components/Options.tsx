@@ -12,12 +12,12 @@ const styles = StyleSheet.create({
   row: {flexDirection: 'row'},
   fluidImage: {
     flex: 1,
-    width: null,
-    height: null,
+    width: undefined,
+    height: undefined,
   },
 });
 
-const Options: React = () => {
+const Options: React.FC<Options> = () => {
   // const menu = (
   //   <View style={styles.row}>
   //     <Image
