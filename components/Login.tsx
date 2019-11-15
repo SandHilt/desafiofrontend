@@ -6,7 +6,7 @@
 import React, {Fragment, useState} from 'react';
 import {Button, Image, StyleSheet, Text, TextInput, View} from 'react-native';
 
-const css = StyleSheet.create({
+const styles = StyleSheet.create({
   textEl: {
     height: 40,
     borderColor: 'gray',
@@ -32,27 +32,27 @@ const css = StyleSheet.create({
   },
 });
 
-const Login = ({nextIndex}) => {
+const Login: React.FC<Login> = ({nextIndex}) => {
   const [login, setEmail] = useState('');
   const [cpf, setCPF] = useState();
 
   return (
     <Fragment>
-      <View style={css.containerImage}>
+      <View style={styles.containerImage}>
         <Image
           source={require('../assets/Logo_telaInicial.png')}
           resizeMode="center"
         />
       </View>
-      <View style={css.oneBlock}>
+      <View style={styles.oneBlock}>
         <TextInput
-          style={css.textEl}
+          style={styles.textEl}
           placeholder="E-mail"
           onSubmitEditing={({nativeEvent: {text}}) => setEmail(text)}
           value={login}
         />
         <TextInput
-          style={css.textEl}
+          style={styles.textEl}
           placeholder="CPF"
           onSubmitEditing={({nativeEvent: {text}}) => setCPF(text)}
           value={cpf}
@@ -60,10 +60,10 @@ const Login = ({nextIndex}) => {
         <Button
           title="Logar"
           onPress={nextIndex}
-          color={css.btn.color}
-          style={css.btn}
+          color={styles.btn.color}
+          style={styles.btn}
         />
-        <Text style={css.forgetPass}>Esqueceu a senha? Nem tem senha.</Text>
+        <Text style={styles.forgetPass}>Esqueceu a senha? Nem tem senha.</Text>
       </View>
     </Fragment>
   );

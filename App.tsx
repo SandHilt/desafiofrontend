@@ -12,7 +12,7 @@ import {View, StyleSheet} from 'react-native';
 import Login from './components/Login';
 import Options from './components/Options';
 
-const css = StyleSheet.create({
+const styles = StyleSheet.create({
   main: {
     flex: 1,
     alignItems: 'center',
@@ -20,7 +20,7 @@ const css = StyleSheet.create({
 });
 
 const App = () => {
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(2);
   const [view, setView] = useState(null);
   const nextIndex = () => setIndex(index + 1);
 
@@ -35,7 +35,7 @@ const App = () => {
     }
   }, [index]);
 
-  return <View style={css.main}>{view}</View>;
+  return <View style={styles.main}>{view}</View>;
 };
 
 export default App;
