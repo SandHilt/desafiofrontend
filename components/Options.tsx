@@ -10,7 +10,7 @@ import {handleBackAction} from './Back';
 import Menu from './Menu';
 
 const styles = StyleSheet.create({
-  item: {
+  wrapper: {
     flex: 1,
     width: '100%',
     alignItems: 'center',
@@ -51,7 +51,7 @@ const Options: React.FC<OptionsProp> = ({prevIndex, nextIndex, handleBack}) => {
   handleBackAction(handleBack);
 
   return (
-    <View style={styles.item}>
+    <View style={styles.wrapper}>
       <Menu {...{prevIndex}} />
       <View style={styles.containerImages}>
         <ImageBackground
