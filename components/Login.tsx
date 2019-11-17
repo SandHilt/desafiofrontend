@@ -4,7 +4,14 @@
  */
 
 import React, {Fragment, useState} from 'react';
-import {Button, Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 const styles = StyleSheet.create({
   textEl: {
@@ -19,7 +26,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   btn: {
-    color: '#f77737',
+    backgroundColor: '#f77737',
+    paddingTop: 5,
+    paddingRight: 10,
+    paddingBottom: 5,
+    paddingLeft: 10,
+    alignItems: 'center',
+  },
+  btnText: {
+    color: 'white',
   },
   forgetPass: {
     color: '#6c757d',
@@ -55,7 +70,9 @@ const Login: React.FC<LoginProp> = ({nextIndex}) => {
           onSubmitEditing={({nativeEvent: {text}}): void => setCPF(text)}
           value={cpf}
         />
-        <Button title="Logar" onPress={nextIndex} color={styles.btn.color} />
+        <TouchableOpacity style={styles.btn} onPress={nextIndex}>
+          <Text style={styles.btnText}>Logar</Text>
+        </TouchableOpacity>
         <Text style={styles.forgetPass}>Esqueceu a senha? Nem tem senha.</Text>
       </View>
     </Fragment>

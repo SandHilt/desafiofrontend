@@ -20,14 +20,14 @@ const styles = StyleSheet.create({
 });
 
 const App: React.FC = () => {
-  const [index, setIndex] = useState(2);
+  const [index, setIndex] = useState(1);
   const [view, setView] = useState<JSX.Element>();
 
   /**
    * Avanca para a proxima tela.
    */
   const nextIndex = (): void => {
-    if (index <= 3) {
+    if (index < 3) {
       setIndex(index + 1);
     }
   };
@@ -36,9 +36,17 @@ const App: React.FC = () => {
    * Volta para a ultima tela
    */
   const prevIndex = (): void => {
-    if (index >= 1) {
+    if (index > 1) {
       setIndex(index - 1);
     }
+  };
+
+  /**
+   * Voltando com o botao do Android
+   */
+  const handleBack = (): boolean => {
+    prevIndex();
+    return true;
   };
 
   useEffect(() => {
@@ -47,7 +55,7 @@ const App: React.FC = () => {
         setView(<Login {...{nextIndex}} />);
         break;
       case 2:
-        setView(<Options {...{nextIndex, prevIndex}} />);
+        setView(<Options {...{nextIndex, prevIndex, handleBack}} />);
         break;
     }
   }, [index]);

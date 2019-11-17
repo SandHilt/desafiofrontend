@@ -1,5 +1,15 @@
 import React from 'react';
-import {Button, Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {
+  Alert,
+  Button,
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {handleBackAction} from './Back';
 
 const styles = StyleSheet.create({
   menuActions: {
@@ -48,57 +58,80 @@ const styles = StyleSheet.create({
     height: undefined,
     flex: 1,
   },
+  gameContainer: {
+    backgroundColor: 'black',
+    height: 200,
+    flex: 0.5,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
+  gameText: {
+    fontSize: 36,
+    color: 'white',
+  },
 });
 
-const Options: React.FC<OptionsProp> = ({prevIndex}) => (
-  <View style={styles.item}>
-    <View style={styles.menu}>
-      <View style={styles.containerLogo}>
-        <Image
-          style={styles.logo}
+const Options: React.FC<OptionsProp> = ({prevIndex, handleBack}) => {
+  handleBackAction(handleBack);
+
+  return (
+    <View style={styles.item}>
+      <View style={styles.menu}>
+        <View style={styles.containerLogo}>
+          <Image
+            style={styles.logo}
+            resizeMode="stretch"
+            source={require('../assets/Logo_telaInicial.png')}
+          />
+        </View>
+        <View style={styles.menuActions}>
+          <Image
+            style={styles.menuActionsItem}
+            source={require('../assets/buscar.png')}
+          />
+          <Image
+            style={styles.menuActionsItem}
+            source={require('../assets/config.png')}
+          />
+          <Button title="Sair" onPress={prevIndex} />
+        </View>
+      </View>
+      <View style={styles.containerImages}>
+        <ImageBackground
           resizeMode="stretch"
-          source={require('../assets/Logo_telaInicial.png')}
-        />
-      </View>
-      <View style={styles.menuActions}>
-        <Image
-          style={styles.menuActionsItem}
-          source={require('../assets/buscar.png')}
-        />
-        <Image
-          style={styles.menuActionsItem}
-          source={require('../assets/config.png')}
-        />
-        <Button title="Sair" onPress={prevIndex} />
+          style={styles.fluidImage}
+          source={require('../assets/Img_principal_0.png')}>
+          <View style={styles.containerHeader}>
+            <Text style={styles.header}>CORP</Text>
+          </View>
+        </ImageBackground>
+        <ImageBackground
+          resizeMode="stretch"
+          style={styles.fluidImage}
+          source={require('../assets/Img_principal_1.png')}>
+          <View style={styles.containerHeader}>
+            <Text style={styles.header}>DMD</Text>
+          </View>
+        </ImageBackground>
+        <ImageBackground
+          resizeMode="stretch"
+          style={styles.fluidImage}
+          source={require('../assets/Img_principal_2.png')}>
+          <View style={styles.containerHeader}>
+            <Text style={styles.header}>haTTR</Text>
+          </View>
+        </ImageBackground>
+        <ImageBackground
+          style={styles.gameContainer}
+          source={require('../assets/icone_bt_jogar.png')}>
+          <TouchableOpacity onPress={(): void => Alert.alert('JoJo')}>
+            <Text style={styles.gameText}>Let's game</Text>
+          </TouchableOpacity>
+          {/*<Button title="GAME" onPress={() => Alert.alert('JoJo')} />*/}
+        </ImageBackground>
       </View>
     </View>
-    <View style={styles.containerImages}>
-      <ImageBackground
-        resizeMode="stretch"
-        style={styles.fluidImage}
-        source={require('../assets/Img_principal_0.png')}>
-        <View style={styles.containerHeader}>
-          <Text style={styles.header}>CORP</Text>
-        </View>
-      </ImageBackground>
-      <ImageBackground
-        resizeMode="stretch"
-        style={styles.fluidImage}
-        source={require('../assets/Img_principal_1.png')}>
-        <View style={styles.containerHeader}>
-          <Text style={styles.header}>DMD</Text>
-        </View>
-      </ImageBackground>
-      <ImageBackground
-        resizeMode="stretch"
-        style={styles.fluidImage}
-        source={require('../assets/Img_principal_2.png')}>
-        <View style={styles.containerHeader}>
-          <Text style={styles.header}>haTTR</Text>
-        </View>
-      </ImageBackground>
-    </View>
-  </View>
-);
+  );
+};
 
 export default Options;
