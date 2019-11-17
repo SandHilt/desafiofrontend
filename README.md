@@ -18,4 +18,4 @@
 
     - Todo código deverá ser colocado no seu github pessoal de forma pública. Repassar o link para acesso do mesmo.
     - Será necessário ser repassado um .apk (android) ou .ipa(ios). 
-    - Data limite de entrega 14/11/2019.
+    - Data limite de entrega 18/11/2019.
