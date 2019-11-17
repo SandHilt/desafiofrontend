@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Login: React.FC<Base> = ({nextIndex}) => {
+const Login: React.FC<LoginProp> = ({nextIndex}) => {
   const [login, setEmail] = useState('');
   const [cpf, setCPF] = useState();
 

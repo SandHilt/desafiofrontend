@@ -23,7 +23,23 @@ const App: React.FC = () => {
   const [index, setIndex] = useState(2);
   const [view, setView] = useState<JSX.Element>();
 
-  const nextIndex = (): void => setIndex(index + 1);
+  /**
+   * Avanca para a proxima tela.
+   */
+  const nextIndex = (): void => {
+    if (index <= 3) {
+      setIndex(index + 1);
+    }
+  };
+
+  /**
+   * Volta para a ultima tela
+   */
+  const prevIndex = (): void => {
+    if (index >= 1) {
+      setIndex(index - 1);
+    }
+  };
 
   useEffect(() => {
     switch (index) {
@@ -31,7 +47,7 @@ const App: React.FC = () => {
         setView(<Login {...{nextIndex}} />);
         break;
       case 2:
-        setView(<Options {...{nextIndex}} />);
+        setView(<Options {...{nextIndex, prevIndex}} />);
         break;
     }
   }, [index]);
