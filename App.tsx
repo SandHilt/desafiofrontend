@@ -11,6 +11,7 @@ import {StyleSheet, View} from 'react-native';
 
 import Login from './components/Login';
 import Options from './components/Options';
+import Wheel from './components/Wheel';
 
 const styles = StyleSheet.create({
   main: {
@@ -56,6 +57,9 @@ const App: React.FC = () => {
         break;
       case 2:
         setView(<Options {...{nextIndex, prevIndex, handleBack}} />);
+        break;
+      case 3:
+        setView(<Wheel {...{prevIndex, handleBack}} />);
         break;
     }
   }, [index]);

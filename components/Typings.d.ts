@@ -9,5 +9,10 @@ interface OptionsProp {
 }
 
 interface WheelProp {
+  handleBack: () => void;
+  prevIndex: () => void;
+}
+
+interface MenuProps {
   prevIndex: () => void;
 }
