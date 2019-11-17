@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Login: React.FC<Login> = ({nextIndex}) => {
+const Login: React.FC<Base> = ({nextIndex}) => {
   const [login, setEmail] = useState('');
   const [cpf, setCPF] = useState();
 
@@ -46,13 +46,13 @@ const Login: React.FC<Login> = ({nextIndex}) => {
         <TextInput
           style={styles.textEl}
           placeholder="E-mail"
-          onSubmitEditing={({nativeEvent: {text}}) => setEmail(text)}
+          onSubmitEditing={({nativeEvent: {text}}): void => setEmail(text)}
           value={login}
         />
         <TextInput
           style={styles.textEl}
           placeholder="CPF"
-          onSubmitEditing={({nativeEvent: {text}}) => setCPF(text)}
+          onSubmitEditing={({nativeEvent: {text}}): void => setCPF(text)}
           value={cpf}
         />
         <Button title="Logar" onPress={nextIndex} color={styles.btn.color} />

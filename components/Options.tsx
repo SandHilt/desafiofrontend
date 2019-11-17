@@ -1,67 +1,93 @@
 import React from 'react';
-import {ImageBackground, View, Text, StyleSheet} from 'react-native';
+import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 
 const styles = StyleSheet.create({
-  item: {flex: 1},
   menuActions: {
-    flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'flex-end',
     alignItems: 'center',
+    flex: 1,
   },
-  row: {flexDirection: 'row'},
+  menu: {
+    flexDirection: 'row',
+    padding: 15,
+  },
+  item: {
+    flex: 1,
+    width: '100%',
+  },
   fluidImage: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    marginBottom: 5,
+  },
+  containerHeader: {
+    backgroundColor: 'white',
+    padding: 5,
+  },
+  header: {
+    fontSize: 36,
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 20,
+      height: 20,
+    },
+    shadowOpacity: 10,
+  },
+  containerLogo: {
+    flex: 1,
+    borderWidth: 1,
+  },
+  logo: {
     width: undefined,
     height: undefined,
+    flex: 1,
   },
 });
 
-const Options: React.FC<Options> = () => {
-  // const menu = (
-  //   <View style={styles.row}>
-  //     <Image
-  //
-  //       resizeMode="center"
-  //       source={require('../assets/Logo_telaInicial.png')}
-  //     />
-  //     <View style={styles.menuActions}>
-  //       <Image source={require('../assets/buscar.png')} />
-  //       <Image source={require('../assets/config.png')} />
-  //     </View>
-  //   </View>
-  // );
-
-  return (
+const Options: React.FC<Base> = () => (
     <View style={styles.item}>
-      <View style={styles.item}>
-        <ImageBackground
-          style={styles.fluidImage}
-          source={require('../assets/Img_principal_0.png')}>
-          <Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-            tenetur iusto ipsam, nesciunt exercitationem debitis eligendi neque!
-            Officia quibusdam perspiciatis error illo unde harum atque rem?
-            Nihil atque repudiandae dignissimos.
-          </Text>
-        </ImageBackground>
+      <View style={styles.menu}>
+        <View style={styles.containerLogo}>
+          <Image
+              style={styles.logo}
+              resizeMode="stretch"
+              source={require('../assets/Logo_telaInicial.png')}
+          />
+        </View>
+        <View style={styles.menuActions}>
+          <Image source={require('../assets/buscar.png')}/>
+          <Image source={require('../assets/config.png')}/>
+        </View>
       </View>
       <View style={styles.item}>
         <ImageBackground
-          resizeMode="stretch"
-          style={styles.fluidImage}
-          source={require('../assets/Img_principal_1.png')}>
-          <Text>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati
-            alias harum eum, distinctio quibusdam culpa assumenda rem voluptatum
-            amet earum tempore et doloremque voluptate ullam veritatis veniam
-            dolore corporis optio.
-          </Text>
+            resizeMode="stretch"
+            style={styles.fluidImage}
+            source={require('../assets/Img_principal_0.png')}>
+          <View style={styles.containerHeader}>
+            <Text style={styles.header}>CORP</Text>
+          </View>
         </ImageBackground>
-        {/* <Image source={require('../assets/Img_principal_2.png')} /> */}
+        <ImageBackground
+            resizeMode="stretch"
+            style={styles.fluidImage}
+            source={require('../assets/Img_principal_1.png')}>
+          <View style={styles.containerHeader}>
+            <Text style={styles.header}>DMD</Text>
+          </View>
+        </ImageBackground>
+        <ImageBackground
+            resizeMode="stretch"
+            style={styles.fluidImage}
+            source={require('../assets/Img_principal_2.png')}>
+          <View style={styles.containerHeader}>
+            <Text style={styles.header}>haTTR</Text>
+          </View>
+        </ImageBackground>
       </View>
     </View>
-  );
-};
+);
 
 export default Options;

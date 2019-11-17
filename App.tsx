@@ -7,7 +7,7 @@
  */
 
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 import Login from './components/Login';
 import Options from './components/Options';
@@ -19,10 +19,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const App = () => {
+const App: React.FC = () => {
   const [index, setIndex] = useState(2);
-  const [view, setView] = useState(null);
-  const nextIndex = () => setIndex(index + 1);
+  const [view, setView] = useState<JSX.Element>();
+
+  const nextIndex = (): void => setIndex(index + 1);
 
   useEffect(() => {
     switch (index) {
