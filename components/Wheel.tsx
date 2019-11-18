@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Wheel: React.FC<WheelProp> = ({prevIndex, handleBack}) => {
+const Wheel: React.FC<WheelProp> = ({prevIndex, nextIndex, handleBack}) => {
   handleBackAction(handleBack);
   const [spinValue] = useState(new Animated.Value(0));
   const [animated, setAnimated] = useState(false);
@@ -58,6 +58,8 @@ const Wheel: React.FC<WheelProp> = ({prevIndex, handleBack}) => {
          * TODO Chamar a pagina de pergunta
          */
         Alert.alert('Terminou', `Terminou com o valor ${finalPosition % 7}`);
+
+        nextIndex();
       });
       setAnimated(true);
     }
