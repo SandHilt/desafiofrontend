@@ -12,6 +12,7 @@ interface WheelProp {
   handleBack: () => void;
   prevIndex: () => void;
   nextIndex: () => void;
+  setTheme: (themeId: number) => void;
 }
 
 interface MenuProps {
@@ -19,6 +20,10 @@ interface MenuProps {
 }
 
 interface QuestionProps {
+  handleBack: () => void;
+  backToOptions: () => void;
+  prevIndex: () => void;
   questionIndex: number;
+  nextQuestion: () => void;
   themeIndex: number;
 }

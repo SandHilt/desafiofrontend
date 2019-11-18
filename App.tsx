@@ -34,10 +34,11 @@ const Summary = new Map([
 ]);
 
 const App: React.FC = () => {
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(3);
   const [view, setView] = useState<JSX.Element>();
 
   const [questionId, setQuestionId] = useState(1);
+  const [themeId, setTheme] = useState(-1);
 
   /**
    * Checa se o valor esta no sumario
@@ -66,13 +67,13 @@ const App: React.FC = () => {
   /**
    * Volta para a tela anterior
    */
-  const prevIndex = (): void => {
-    const previous = index - 1;
-
+  const prevIndex = (previous = index - 1): void => {
     if (hasValueInSummary(previous)) {
       setIndex(previous);
     }
   };
+
+  const backToOptions = (): void => prevIndex(Summary.get('Options'));
 
   /**
    * Voltando com o botao do Android
@@ -91,10 +92,16 @@ const App: React.FC = () => {
         setView(<Options {...{nextIndex, prevIndex, handleBack}} />);
         break;
       case Summary.get('Wheel'):
-        setView(<Wheel {...{prevIndex, nextIndex, handleBack}} />);
+        setView(<Wheel {...{prevIndex, nextIndex, handleBack, setTheme}} />);
         break;
       case Summary.get('Question'):
-        setView(<Question questionIndex={questionId} themeIndex={0} />);
+        setView(
+          <Question
+            questionIndex={questionId}
+            themeIndex={themeId}
+            {...{handleBack, nextQuestion, prevIndex, backToOptions}}
+          />,
+        );
         break;
     }
   }, [index]);

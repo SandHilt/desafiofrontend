@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  PixelRatio,
 } from 'react-native';
 import {handleBackAction} from './Back';
 import Menu from './Menu';
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   header: {
-    fontSize: 36,
+    fontSize: 36 / PixelRatio.getFontScale(),
     shadowOpacity: 10,
   },
   gameContainer: {
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   gameText: {
-    fontSize: 36,
+    fontSize: 36 / PixelRatio.getFontScale(),
     color: 'white',
   },
 });
