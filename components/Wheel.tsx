@@ -1,5 +1,4 @@
 import {
-  Alert,
   Animated,
   Easing,
   Image,
@@ -61,13 +60,6 @@ const Wheel: React.FC<WheelProp> = ({prevIndex, nextIndex, handleBack, setTheme}
         delay: 1,
       }).start(() => {
         setAnimated(true);
-        /**
-         * TODO Chamar a pagina de pergunta
-         */
-        Alert.alert(
-          'Terminou',
-          `Terminou com o valor ${finalPosition % 7} com animated ${animated}`,
-        );
         setTheme(finalPosition % 7);
         nextIndex();
       });
