@@ -1,8 +1,5 @@
 import React from 'react';
 import {
-  Alert,
-  Button,
-  Image,
   ImageBackground,
   StyleSheet,
   Text,
@@ -10,22 +7,10 @@ import {
   View,
 } from 'react-native';
 import {handleBackAction} from './Back';
+import Menu from './Menu';
 
 const styles = StyleSheet.create({
-  menuActions: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    flex: 1,
-  },
-  menuActionsItem: {
-    marginRight: 15,
-  },
-  menu: {
-    flexDirection: 'row',
-    padding: 15,
-  },
-  item: {
+  wrapper: {
     flex: 1,
     width: '100%',
     alignItems: 'center',
@@ -49,15 +34,6 @@ const styles = StyleSheet.create({
     fontSize: 36,
     shadowOpacity: 10,
   },
-  containerLogo: {
-    flex: 1,
-  },
-  logo: {
-    maxWidth: 150,
-    width: undefined,
-    height: undefined,
-    flex: 1,
-  },
   gameContainer: {
     backgroundColor: 'black',
     height: 200,
@@ -71,31 +47,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const Options: React.FC<OptionsProp> = ({prevIndex, handleBack}) => {
+const Options: React.FC<OptionsProp> = ({prevIndex, nextIndex, handleBack}) => {
   handleBackAction(handleBack);
 
   return (
-    <View style={styles.item}>
-      <View style={styles.menu}>
-        <View style={styles.containerLogo}>
-          <Image
-            style={styles.logo}
-            resizeMode="stretch"
-            source={require('../assets/Logo_telaInicial.png')}
-          />
-        </View>
-        <View style={styles.menuActions}>
-          <Image
-            style={styles.menuActionsItem}
-            source={require('../assets/buscar.png')}
-          />
-          <Image
-            style={styles.menuActionsItem}
-            source={require('../assets/config.png')}
-          />
-          <Button title="Sair" onPress={prevIndex} />
-        </View>
-      </View>
+    <View style={styles.wrapper}>
+      <Menu {...{prevIndex}} />
       <View style={styles.containerImages}>
         <ImageBackground
           resizeMode="stretch"
@@ -124,10 +81,9 @@ const Options: React.FC<OptionsProp> = ({prevIndex, handleBack}) => {
         <ImageBackground
           style={styles.gameContainer}
           source={require('../assets/icone_bt_jogar.png')}>
-          <TouchableOpacity onPress={(): void => Alert.alert('JoJo')}>
+          <TouchableOpacity onPress={nextIndex}>
             <Text style={styles.gameText}>Let's game</Text>
           </TouchableOpacity>
-          {/*<Button title="GAME" onPress={() => Alert.alert('JoJo')} />*/}
         </ImageBackground>
       </View>
     </View>
