@@ -57,7 +57,7 @@ const Wheel: React.FC<WheelProp> = ({prevIndex, handleBack}) => {
         /**
          * TODO Chamar a pagina de pergunta
          */
-        Alert.alert('Terminou', `Terminou com o valor ${finalPosition}`);
+        Alert.alert('Terminou', `Terminou com o valor ${finalPosition % 7}`);
       });
       setAnimated(true);
     }

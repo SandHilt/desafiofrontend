@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 });
 
 const App: React.FC = () => {
-  const [index, setIndex] = useState(3);
+  const [index, setIndex] = useState(1);
   const [view, setView] = useState<JSX.Element>();
 
   /**
