@@ -2,7 +2,7 @@ import {Button, Image, StyleSheet, View} from 'react-native';
 import React from 'react';
 
 const styles = StyleSheet.create({
-  menu: {flexDirection: 'row', padding: 15},
+  menu: {flexDirection: 'row', padding: 15, backgroundColor: 'white'},
   containerLogo: {
     flex: 1,
   },
