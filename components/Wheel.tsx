@@ -1,5 +1,4 @@
 import {
-  Alert,
   Animated,
   Easing,
   Image,
@@ -36,12 +35,18 @@ const styles = StyleSheet.create({
   },
 });
 
-const Wheel: React.FC<WheelProp> = ({prevIndex, handleBack}) => {
+const Wheel: React.FC<WheelProp> = ({prevIndex, nextIndex, handleBack, setTheme}) => {
   handleBackAction(handleBack);
   const [spinValue] = useState(new Animated.Value(0));
   const [animated, setAnimated] = useState(false);
 
   const finalPosition = rand(14, 21);
+
+  const handleBackButton = (): void => {
+    spinValue.stopAnimation(() => {
+      prevIndex();
+    });
+  };
 
   /**
    * Gerenciando o spin
@@ -54,12 +59,10 @@ const Wheel: React.FC<WheelProp> = ({prevIndex, handleBack}) => {
         easing: Easing.inOut(Easing.ease),
         delay: 1,
       }).start(() => {
-        /**
-         * TODO Chamar a pagina de pergunta
-         */
-        Alert.alert('Terminou', `Terminou com o valor ${finalPosition % 7}`);
+        setAnimated(true);
+        setTheme(finalPosition % 7);
+        nextIndex();
       });
-      setAnimated(true);
     }
   };
 
@@ -104,7 +107,7 @@ const Wheel: React.FC<WheelProp> = ({prevIndex, handleBack}) => {
           </ImageBackground>
         </ImageBackground>
       </TouchableOpacity>
-      <TouchableOpacity onPress={prevIndex}>
+      <TouchableOpacity onPress={handleBackButton}>
         <Image
           style={styles.backButton}
           source={require('../assets/bt_voltar.png')}
